@@ -1,1 +1,3 @@
-web: gunicorn gettingstarted.wsgi
+web:python zaphbotpy.py
+
+worker:python zaphbotpy.py
