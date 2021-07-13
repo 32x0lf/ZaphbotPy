@@ -97,7 +97,7 @@ async def purge(ctx, limit: int = 100, user= None, *, matches: str = None):
         return True
     deleted = await ctx.channel.purge(limit=limit, check=check_msg)
     msg = await ctx.send(ctx, 'purge', len(deleted))
-    await a.sleep(2)
+    await bot.sleep(2)
     await msg.delete()
 
 
