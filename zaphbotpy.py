@@ -1,7 +1,11 @@
+import json
 import os
 import discord 
 import random
 import requests
+import worker
+import datetime
+import time
 from discord.ext.commands import Bot
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -76,7 +80,10 @@ async def request(ctx,strslp):
     url='https://lunacia.skymavis.com/game-api/clients/0x'+ ronin[1] +'/items/1'
     response = requests.get(url,headers=headers)
     status = response.status_code
-    await ctx.send('Your total slp is' + ' ' +str(response.json()['total']))
+    #as_of = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(response.json()['last_claimed_item_at'])))
+    #as_of = datetime.datetime.utcfromtimestamp((response.json()['last_claimed_item_at']).replace(tzinfo=datetime.timezone.utc))
+    as_of = time.strftime("%a, %d %b %Y %H:%M:%S +0800", time.localtime(int(response.json()['last_claimed_item_at'])))
+    await ctx.send('Your total slp is' + ' ' +str(response.json()['total']) + ' ' +'as of' +' '+ as_of )
 
 
 # @has_permissions(manage_messages=True, read_message_history=True)
