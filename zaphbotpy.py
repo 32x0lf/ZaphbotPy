@@ -82,7 +82,8 @@ async def request(ctx,strslp):
     status = response.status_code
     #as_of = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime(int(response.json()['last_claimed_item_at'])))
     #as_of = datetime.datetime.utcfromtimestamp((response.json()['last_claimed_item_at']).replace(tzinfo=datetime.timezone.utc))
-    as_of = time.strftime("%a, %d %b %Y %H:%M:%S +0800", time.ctime(int(response.json()['last_claimed_item_at'])))
+    #as_of = time.strftime("%a, %d %b %Y %H:%M:%S +0800", time.ctime(int(response.json()['last_claimed_item_at'])))
+    as_of = time.ctime(int(response.json()['last_claimed_item_at']))
     await ctx.send('Your total SLP is' + ' ' +str(response.json()['total']) + ' ' +'as of' +' '+ as_of )
 
 
