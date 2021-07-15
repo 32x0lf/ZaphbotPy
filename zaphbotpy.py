@@ -111,8 +111,3 @@ async def purge(ctx, limit: int = 100, user= None, *, matches: str = None):
 
 ##client = CustomClient()
 bot.run(TOKEN)
-
-
-
-# https://api.lunaciarover.com/stats/0xc151798ffca08c8c8f95e247949b5ff1941ad5ec
-#https://lunacia.skymavis.com/game-api/clients/0x<RONIN>/items/1
